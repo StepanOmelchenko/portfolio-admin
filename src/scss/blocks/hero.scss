@@ -1,0 +1,94 @@
+.hero{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-image: url("../img/bg/section-top.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    &__inner{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__header{
+        width: 100%;
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        @include phones{
+            padding-top: 10px;
+        }
+    }
+
+    &__socials{
+        margin-left: 30px;
+
+        @include phones{
+            margin-left: 10px;
+        }
+    }
+
+    &__menu{
+        margin-right: 30px;
+
+        @include phones{
+            margin-right: 10px;
+        }
+    }
+
+    &__svg{
+        fill: $white;
+        opacity: .1;
+        width: 70%;
+        height: 70%;
+    }
+
+    &__svg--blog{
+        width: 40%;
+        height: 40%;
+    }
+
+    &__container{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        @include phones{
+            width: 95%;
+        }
+    }
+
+    &__next{
+        margin-bottom: 3%;
+        z-index: 10;
+        transition: transform .2s;
+        
+        &-svg{
+            fill: $white;
+            opacity: .7;
+        }
+
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+
+    &__hidden{
+        visibility: hidden;
+
+        @include tablets{
+            visibility: visible;
+            margin-bottom: 15px;
+        }
+    }
+
+}

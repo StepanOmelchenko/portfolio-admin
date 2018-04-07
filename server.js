@@ -1,30 +1,30 @@
 const express = require('express');
 const path = require('path');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+/* const logger = require('morgan'); */
+/* const bodyParser = require('body-parser'); */
+/* const mongoose = require('mongoose'); */
 
 const app = express();
-const index = require('./routes/index');
-const indexApi = require('./api/routes/index');
+/* const index = require('./routes/index');
+const indexApi = require('./api/routes/index'); */
 
-require('./api/models/db');
+/* require('./api/models/db'); */
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+/* app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug'); */
 
-app.use(logger('dev'));
+/* app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false})); */
 
-app.use('/myadmin(.html)?', (req, res) => {
+/* app.use('/myadmin(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'myadmin.html'));
-});
+}); */
 
-app.use('/api', indexApi);
-app.use('/', index);
+/* app.use('/api', indexApi);
+app.use('/', index); */
 
 app.use(function (req, res, next) {
     var err = new Error('Not found');
@@ -40,6 +40,6 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-aap.listen(3000, () => {
+app.listen(3000, () => {
     console.log('Server is running, port: 3000');
 });

@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'robotoregular', Arial, Helvetica, sans-serif;
+    font-size: $font-size;
+    color: #455a64;
+
+    @include horizontal{
+        font-size: $font-size-phones;
+    }
+}
+  
+ul{
+    list-style-type: none;
+}
+  
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.section{
+    height: 100vh;
+    min-height: 650px;
+    position: relative;
+}
+  

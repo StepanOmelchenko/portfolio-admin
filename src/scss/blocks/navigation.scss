@@ -1,0 +1,28 @@
+.navigation{
+
+    &__list{
+        display: flex;
+    }
+
+    &__item{
+        margin-right: 40px;
+
+        &:last-child{
+            margin-right: 0;
+        }
+
+        &:hover{
+            opacity: .5;
+        }
+
+        @include desktops-hight{
+            margin-right: 18px;
+        }
+
+        @include phones{
+            margin-right: 10px;
+        }
+    }
+
+
+}

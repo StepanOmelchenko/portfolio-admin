@@ -1,0 +1,68 @@
+.overlay{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(108, 156, 90, .8);
+    justify-content: center;
+    align-items: center;
+
+    &--active{
+        display: flex;
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &__item{
+        margin-bottom: 80px;
+
+        @include phones{
+            margin-bottom: 50px;
+        }
+    }
+
+    &__link{
+        text-transform: uppercase;
+        color: $white;
+        font-family: "sansus_webissimoregular", Arial, Helvetica, sans-serif;
+        font-size: 63px;
+        position: relative;
+
+        &:after{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 90px;
+            height: 6px;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $white;
+            opacity: 0;
+            transition: opacity .2s;
+
+            @include phones{
+                width: 58px;
+                bottom: -18px;
+            }
+        }
+
+        &:hover:after{
+            opacity: 1;            
+        }
+
+        @include tablets{
+            font-size: 49px;
+        }
+
+        @include phones{
+            font-size: 35px;
+        }
+    }
+}

@@ -1,0 +1,142 @@
+.footer{
+    width: 100%;
+    height: 100%;
+    color: $white;
+
+    &__top{
+        display: flex;
+        height: 147px;
+        background-color: rgba(55, 62, 66, .9);
+        padding: 20px 0;
+
+        @include desktops-low{
+            flex-wrap: wrap;
+            height: 245px;
+            align-content: space-between;
+            padding: 30px 0;
+        }
+
+        @include phones{
+            height: 288px;
+            flex-direction: column;
+            padding: 0;
+            align-content: space-around;
+            text-align: center;
+            align-items: center;
+        }
+    }
+
+    &__top-section{
+        margin-left: 30px;
+        flex: 1;
+        position: relative;
+        padding-right: 20px;
+
+        @include desktops{
+            padding-right: 5px;
+            margin-left: 10px;
+        }
+
+        @include desktops-low{
+            margin-left: 30px;
+        }
+
+        @include phones{
+            width: 95%;
+            margin-left: 0;
+            padding-right: 0;
+            margin-top: 10px;
+
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+
+        &:after{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 99.5%;
+            bottom: 0;
+            background-color: $white;
+            opacity: .2;
+
+            @include phones{
+                left: 0;
+                top: 99.5%;
+            }
+        }
+
+        
+        &:last-child &:after{
+            display: none;
+        }
+    }
+
+    &__left{
+        font-family: 'robotolight', Arial, Helvetica, sans-serif;
+
+        @include phones{
+            flex: 1;
+        }
+    }
+
+    &__left-text{
+        line-height: 24px;
+    }
+
+    &__center{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @include phones{
+            align-items: center;
+            flex: 1;
+        }
+    }
+
+    &__navigation{
+        margin-bottom: 25px;
+    }
+
+    &__right{
+
+
+        @include desktops-low{
+            flex-basis: 100%;
+            width: 100%;
+        }
+
+        @include phones{
+            flex: 1;
+        }
+    }
+
+    &__right-content{
+        line-height: 26px;
+        opacity: .5;
+    }
+
+    &__right-text{
+        font-family: 'robotolight_italic', Arial, Helvetica, sans-serif;
+    }
+
+    &__right-signature{
+        font-family: 'robotobold_italic', Arial, Helvetica, sans-serif;
+    }
+
+    &__bottom{
+        background-color: rgba(108, 156, 90, .8);
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    &__bottom-signature{
+        color: $white;
+        font-family: 'robotolight', Arial, Helvetica, sans-serif;
+    }
+}

@@ -1,7 +1,8 @@
-# Portfolio-server
+Stepan Omelchenko
+portfolio website + server
 
-Server part for portfolio
-Node.js + MongoDB
+to install:
 
-npm i
-npm run dev
+1. clone this repo
+2. npm i
+3. gulp

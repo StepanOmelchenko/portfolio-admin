@@ -1,0 +1,40 @@
+.socials{
+
+    &__list{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    &__item{
+        display: inline-block;
+        margin-left: 25px;
+
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+    
+    &__link{
+        display: flex;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+    }
+    
+    &__svg{
+        height: 24px;
+        fill: $white;
+        opacity: .5;
+        transition: fill .2s;
+      
+        &:hover{
+            fill: #4e8839;
+        }
+
+        @include phones{
+            height: 17px;
+            width: 24px;
+        }
+    }
+  }

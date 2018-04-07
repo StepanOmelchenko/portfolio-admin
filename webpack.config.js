@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "./public/lib"),
-    publicPath: "/public/",
+    publicPath: "/src/admin/",
     filename: "[name].bundle.js"
   },
   module: {
@@ -39,8 +39,8 @@ module.exports = {
                 loader: "sass-resources-loader",
                 options: {
                   resources: [
-                    "./src/styles/variables.scss",
-                    "./src/styles/mixins.scss"
+                    "./src/admin/styles/variables.scss",
+                    "./src/admin/styles/mixins.scss"
                   ]
                 }
               }
@@ -74,8 +74,8 @@ module.exports = {
   resolve: {
     alias: {
       vue$: "vue/dist/vue.esm.js",
-      styles: path.resolve(__dirname, "src/styles/components/"),
-      images: path.resolve(__dirname, "src/assets/img/")
+      styles: path.resolve(__dirname, "src/admin/styles/components/"),
+      images: path.resolve(__dirname, "src/admin/assets/img/")
     },
     extensions: ["*", ".js", ".vue", ".json"]
   },
@@ -100,12 +100,12 @@ if (process.env.NODE_ENV === "production") {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    /* new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
         warnings: false
       }
-    }),
+    }), */
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })

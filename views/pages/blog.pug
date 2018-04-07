@@ -1,0 +1,19 @@
+extends ../main.layout.pug
+
+block content
+  include ../common/_header
+  include ../common/_menu
+
+  .container
+    ul.article-wrap
+      each index in items
+          li.article
+            .article__title= index.title
+              - 
+                var date= new Date(index.date).toLocaleDateString('ru', { 
+                                year: 'numeric', 
+                                month: '2-digit', 
+                                day: '2-digit'
+                                })
+            time.article__data= date
+            .article__text= index.body

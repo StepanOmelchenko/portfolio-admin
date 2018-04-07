@@ -162,6 +162,6 @@ exports.watch = watch;
 
 gulp.task('default', gulp.series(
     clear,
-    gulp.parallel(styles, templates, images, fonts, scripts, spriteSvg),
-    gulp.parallel(watch/* , server */)
+    gulp.parallel(styles, templates, images, fonts, ),
+    gulp.parallel(scripts, spriteSvg /* watch, server */)
 ));

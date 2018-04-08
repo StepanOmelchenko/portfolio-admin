@@ -1,5 +1,5 @@
 <template lang="pug">
-  form.about(@submit.prevent="save")
+  form.about(@submit.prevent="saveAll")
     h2.about__header Страница "Обо мне"
     .about__container
       skills-list(
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     ...mapActions(['fetchSkills', 'saveSkills']),
-    save: function() {
+    saveAll: function() {
       let data = this.skills;
       this.saveSkills(data);
     }

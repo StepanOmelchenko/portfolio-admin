@@ -21,29 +21,18 @@ const skills = {
     fetchSkills({ state }) {
       axios.get('http://localhost:3000/api/admin').then(rs => {
         state.data = rs.data.skills;
-        console.log('fetchSkills about ' + state);
       });
     },
     saveSkills({ state, commit }, data) {
-      // console.log('saveSkills ');
-      // console.log(data);
       axios({
         method: 'post',
         url: 'http://localhost:3000/api/admin',
         data: data
       }).then(rs => {
         state.msgSkills = rs.data.status;
-      });;
+      });
     }
-    /* fetchSkills({ state }) {
-      fetch("/src/data.json")
-        .then(data => {
-          return data.json();
-        })
-        .then(responce => {
-          state.data = responce
-        });
-    } */
+    
   }
 };
 

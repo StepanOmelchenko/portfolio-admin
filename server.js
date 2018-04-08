@@ -5,7 +5,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const app = express();
-mongoose.connect('mongodb://test:test@ds137089.mlab.com:37089/portfolio');
+/* mongoose.connect('mongodb://test:test@ds137089.mlab.com:37089/portfolio'); */
 
 /* var People = mongoose.model('human', {name: String});
 
@@ -16,12 +16,11 @@ victor.save((msg) => {
 }); */
 
 const index = require('./routes/index');
-/* const indexApi = require('./api/routes/index');  */
+const indexApi = require('./api/routes/index'); 
 
-/* require('./api/models/db'); */
+require('./api/models/db');
 
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -33,7 +32,7 @@ app.use(bodyParser.urlencoded({extended: false})); */
     res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 }); */
 
-/* app.use('/api', indexApi); */
+app.use('/api', indexApi);
 app.use('/', index);
 //app.use('/admin', require('./routes/index'));
 

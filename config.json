@@ -1,10 +1,10 @@
 {
     "db": {
-        "host": "localhost",
-        "port": "27017",
-        "name": "api2017",
-        "user": "",
-        "password": ""
+        "host": "ds137089.mlab.com",
+        "port": "37089",
+        "name": "portfolio",
+        "user": "test",
+        "password": "test"
     },
     "mail": {
         "subject": "Сообщение с сайта",

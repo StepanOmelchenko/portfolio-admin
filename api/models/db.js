@@ -39,3 +39,4 @@ process.on('SIGINT', function() {
 });
 
 require('./admin');
+require('../../models/user');

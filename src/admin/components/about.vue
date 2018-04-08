@@ -8,7 +8,7 @@
         :skillType="skillType"
         :skills="skills"
       )
-      input(name="" value="Сохранить" type="submit").about__save
+      //input(name="" value="Сохранить" type="submit").about__save
 
 </template>
 <script>

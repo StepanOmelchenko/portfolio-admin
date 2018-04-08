@@ -2,9 +2,9 @@
   li.skill__item
       .skill__name {{skill.name}}
       label.skill__label 
-        input(type="text" :value="skill.percents").skill__value
+        input(type="text" :value="skill.percents" ref="skillVal").skill__value
       span.skill__span &#37; 
-      button(type="button" @click="removeExistedSkill(skill.id)").skill__btn Del
+      button(type="button" @click="saveSkill(skill._id)").skill__btn Set
 </template>
 
 <script>
@@ -14,9 +14,18 @@ export default {
     skill: Object
   },
   methods: {
-    ...mapMutations(['removeSkill']),
-    removeExistedSkill(skillId) {
-      this.removeSkill(skillId);
+    ...mapMutations(['removeSkill', 'setSkill']),
+    /* editExistedSkill(skillId, skillVal) {
+      console.log(skillVal);
+      this.editSkill(skillId, skillVal);
+    }, */
+    saveSkill(skillId) {
+      console.log(skillId, this.$refs.skillVal.value);
+      const data = {
+        id: skillId,
+        val: this.$refs.skillVal.value
+      };
+      this.setSkill(skillId, this.$refs.skillVal.value);
     }
   }
 };

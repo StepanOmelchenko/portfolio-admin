@@ -6,7 +6,7 @@
       @keydown.enter="addNewSkill"
       :class="{error : validation.hasError('skillName')}"
     ).skill__input
-    button(type="button" @click="addNewSkill").skill__btn Сохранить
+    //button(type="button" @click="addNewSkill").skill__btn Сохранить
     .error-message {{validation.firstError('skillName')}}
 </template>
 <script>
@@ -55,6 +55,7 @@ export default {
 
   .skill-input{
     margin-top: 20px;
+    display: none;
   }
 
   .skill__input{

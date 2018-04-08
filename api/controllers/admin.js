@@ -20,7 +20,31 @@ module.exports.getSkills = function(req, res) {
 };
 
 module.exports.setSkills = function(req, res) {
-  
+  const id = req.data.id;
+  const value = req.data.val;
+  console.log(req);
+  const Model = mongoose.model('admin');
+
+  Model
+    .findByIdAndUpdate(id, {$set: {percents, value}})
+    .then((item) => {
+      if (item) {
+        res
+          .status(200)
+          .json({status: 'Запись успешно обновлена'});
+      } else {
+        res
+          .status(404)
+          .json({status: 'Запись в БД не обнаружена'});
+      }
+    })
+    .catch((err) => {
+      res
+        .status(404)
+        .json({
+          status: 'При обновлении записи произошла ошибка: ' + err
+        });
+    });
 };
 
 /* const mongoose = require('mongoose');

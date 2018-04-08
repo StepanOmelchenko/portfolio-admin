@@ -19,17 +19,18 @@ const skills = {
   },
   actions: {
     fetchSkills({ state }) {
-      axios.get('http://localhost:3000/api/admin').then(rs => {
-        state.data = rs.data.skills;
+      axios.get('http://localhost:3000/api/admin').then((res) => {
+        state.data = res.data.skills;
       });
     },
-    saveSkills({ state, commit }, data) {
+    setSkill({ state, commit }, data) {
+      console.log('hello from setSkill');
       axios({
         method: 'post',
         url: 'http://localhost:3000/api/admin',
         data: data
-      }).then(rs => {
-        state.msgSkills = rs.data.status;
+      }).then((res) => {
+        state.msgSkills = res.data.status;
       });
     }
     

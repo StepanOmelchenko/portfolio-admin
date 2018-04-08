@@ -25,10 +25,13 @@ module.exports.index = function (req, res) {
 
     body.skills.forEach((item) => {
       if (item.type == 1) {
+        item.type = 'frontend';
         skills.frontend.push(item);
       } else if (item.type == 2) {
+        item.type = 'workflow';
         skills.workflow.push(item);
       } else if (item.type == 3) {
+        item.type = 'backend';
         skills.backend.push(item);
       }
     });
@@ -37,9 +40,7 @@ module.exports.index = function (req, res) {
 
     //console.log(skills);
 
-    for (skill in body.skills) {
-      console.log(skill);
-    } 
+    console.log(body.skills);
 
     res.render('pages/about', Object.assign({}/* , sendObj */, body));
   });

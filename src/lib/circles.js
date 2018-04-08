@@ -171,11 +171,10 @@ const circlesData = [
     }
 ];
 
-if (diagramsContainer) {
-    /* console.log('hello from diagrams'); */
+/* if (diagramsContainer) {
     diagramsContainer.innerHTML = null;
     circlesData.forEach((row) => {
         diagramsContainer.appendChild(new ScillList(row));
     });
     
-}
+} */

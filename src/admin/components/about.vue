@@ -1,5 +1,5 @@
 <template lang="pug">
-  .about
+  form.about(@submit.prevent="save")
     h2.about__header Страница "Обо мне"
     .about__container
       skills-list(
@@ -8,6 +8,7 @@
         :skillType="skillType"
         :skills="skills"
       )
+      input(name="" value="Сохранить" type="submit").about__save
 
 </template>
 <script>
@@ -26,7 +27,11 @@ export default {
     ...mapGetters(['skills'])
   },
   methods: {
-    ...mapActions(['fetchSkills'])
+    ...mapActions(['fetchSkills', 'saveSkills']),
+    save: function() {
+      let data = this.skills;
+      this.saveSkills(data);
+    }
   },
   mounted() {
     this.fetchSkills();
@@ -52,6 +57,22 @@ export default {
         height: 100vh;
         display: flex;
         flex-direction: column;
+      }
+
+      &__save{
+        outline: none;
+        border: none;
+        margin-top: 20px;
+        width: 100px;
+        height: 40px;
+        background-color: #6c9c5a;
+        color: $white;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover{
+          color: #813;
+        }
       }
   }
 </style>

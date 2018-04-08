@@ -1,23 +1,66 @@
 const mongoose = require('mongoose');
 
-module.exports.getSkills = function (req, res) {
-  const blog = mongoose.model('blog');
+module.exports.getSkills = function(req, res) {
 
-    blog
+  const skills = mongoose.model('skills');
+
+    skills
         .find()
         .then(items => {
         if (!items.length) {
             res
             .status(200)
-            .json({articles: []});
+            .json({skills: []});
         } else {
             res
             .status(200)
-            .json({articles: items});
+            .json({skills: items});
         }
         });
 };
 
+module.exports.setSkills = function(req, res) {
+  // создаем новую запись блога и передаем в нее поля из формы
+  const Model = mongoose.model('skills');
+  // меняем запись в базе
+  Model.update(
+    {},
+    { data: req.body },
+    (err, item) => {
+      if (err)
+        return res.status(400).json({ message: err.message, error: err });
+      console.log(item);
+      return res.status(201).json({ status: 'Все изменения сохранены' });
+    }
+    // err => {
+    //   // обрабатываем  и отправляем
+    //   res.status(404).json({
+    //     status: 'При добавление записи произошла ошибка: ' + err
+    //   });
+    // }
+  );
+};
+
+/* const mongoose = require('mongoose');
+
+module.exports.getSkills = function (req, res) {
+  const skills = mongoose.model('skills');
+
+    skills
+        .find()
+        .then(items => {
+        if (!items.length) {
+            res
+            .status(200)
+            .json({skills: []});
+        } else {
+            res
+            .status(200)
+            .json({skills: items});
+        }
+        });
+};
+ */
 /* module.exports.createArticle = function (req, res) {
   // создаем новую запись блога и передаем в нее поля из формы
   const Model = mongoose.model('blog');

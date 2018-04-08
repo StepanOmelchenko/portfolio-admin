@@ -19,7 +19,6 @@ export default {
     },
     methods: {
         setActive(tab) {
-            console.log(this.tabs);
             this.tabs.forEach((item) => {
                 item.active = false;
             });

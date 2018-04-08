@@ -4,7 +4,7 @@ const config = require('../../config');
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`)
+  .connect(`mongodb://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`)
   .catch(e => {
     console.error(e);
     throw e;
@@ -38,4 +38,4 @@ process.on('SIGINT', function() {
   });
 });
 
-/* require('./admin'); */
+require('./admin');

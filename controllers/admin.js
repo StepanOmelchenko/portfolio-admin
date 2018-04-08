@@ -1,5 +1,3 @@
-/* module.exports.admin = function (req, res) {
-    res.render('pages/index', {
-    title: 'Admin panel'
-    });
-}; */
+module.exports.index = function(req, res) {
+    res.render('pages/admin', {});
+};

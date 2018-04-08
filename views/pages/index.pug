@@ -1,27 +1,69 @@
-extends ../main.layout.pug
+extends ../template
 
+block varibles
+    -var title="Welcome Page"
 block content
-  include ../common/_header
-  include ../common/_menu
-  section.about
-    .container.about__container
-      .about__photo
-        .about__photo-wrap
-          img(src="images/avatar.png", alt="").about__photo-pic
-        .about__name Архипов Александр
-      .about__desc
-        p  Меня зовут Саша. Проживаю в центре Занзибара в городе Левое ухо шамана, с появлением интернета, с головой увлёкся этой темой, и теперь уже почти живу Он-Лайн. С недавних пор (уже года два), это уже не просто увлечение, но и нормальный заработок для меня и моей семьи, на этом конечно не собираюсь останавливаться, а буду стараться добиться ещё больших результатов! Интернет сообщество очень интересно и многогранно , почти каждый день появляется что то новое и хочется всё это изучить, внедрить и проверить на себе , многое получается, и со временем приносит свои плоды.
-  section.contacts
-    .container
-      form.form#mail(action='/mail' method="POST" enctype="application/x-www-form-urlencoded")
-          .form__subtitle Связаться со мной
-          if (msg)
-            .status= msg
-          label.form__input-line
-              input(name="name" type="text" placeholder="Имя").form__input
-          label.form__input-line
-              input(name="email" type="email" placeholder="E-mail").form__input
-          textarea(placeholder="Ваше сообщение" name="text").form__textarea
-          .form__btns.form__input-line
-              input(name="" type="submit" value="Отправить").form__btn-send
-              input(name="" type="reset" value="Очистить").form__btn-reset
+    .preloader(id="preloader")
+        .preloader__box
+            .preloader__title(id="preloader-title") 0 %
+            svg.preloader__svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="95" viewBox="0 20 80 95")
+                path(class="preloader__svg-path" fill="none" stroke="#231F20" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005")
+                path(class="preloader__svg-path preloader__svg-path--second" fill="none" stroke="#231F20" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684")
+                path(class="preloader__svg-path preloader__svg-path--third" fill="none" stroke="#231F20" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362")
+                //text(id="preloader-svg-text" transform="matrix(1 0 0 1 19.9785 20.5957)" font-family="'ArialMT'" font-size="24") 0 %
+    section.welcome.section
+        canvas.welcome__canvas
+        .welcome__inner
+            .welcome__container
+                header.welcome__header
+                    a.welcome__header-link.authorization-btn(href="#" id="autr-btn") Авторизаваться
+                .welcome__box
+                    .welcome__flipper-container
+                        .welcome__flipper(id="flipper")
+                            .welcome__hero
+                                .welcome__content
+                                    .welcome__info
+                                        include ../common/info.pug
+                                        +info("welcome")
+                                    .welcome__content-socials.socials
+                                        include ../common/socials.pug
+                                nav.welcome__navigation
+                                    ul.welcome__navigation-list
+                                        li.welcome__navigation-item
+                                            a.welcome__navigation-link(href="works") Мои работы
+                                        li.welcome__navigation-item
+                                            a.welcome__navigation-link(href="about") Обо мне
+                                        li.welcome__navigation-item
+                                            a.welcome__navigation-link(href="blog") Блог
+                            .welcome__autorization
+                                form.login(id="login" method="POST" action="main.php")
+                                    h2.login__header Авторизуйтесь
+                                    label.login__label(for="login")
+                                        input.login__input(type="text" name="login" placeholder="Имя" required)
+                                    label.login__label(for="pass")
+                                        input.login__input(type="text" name="pass" placeholder="Пароль" required)
+                                    label.login__checkbox
+                                        input.login__check(type="checkbox" name="check")
+                                        span.login__check-img
+                                        span.login__check-span Я человек
+                                    p.login__text Вы точно не робот?
+                                    .login__radios
+                                        label.login__radios-label
+                                            input.login__radio(type="radio" name="yes")
+                                            span.login__radio-img
+                                            span.login__radio-span ДА
+                                        label.login__radios-label
+                                            input.login__radio(type="radio" name="yes" checked)
+                                            span.login__radio-img
+                                            span.login__radio-span Не уверен 
+                                    .login__controls
+                                        label.login__back-label
+                                            span.login__back-span(id="login-return") На главную
+                                            input.login__back(type="button")
+                                        label.login__submit-label 
+                                            span.login__submit-span Войти
+                                            input.login__submit(type="submit")
+                footer.welcome__footer
+                    p.welcome__footer-signature © Омельченко Степан | создано с любовью в LoftSchool | 2018
+    include ../common/pantry-socials.pug
+                    

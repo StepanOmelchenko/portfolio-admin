@@ -28,19 +28,19 @@ class CreateOverlay {
 const overlayMenu = [
     {
         title: 'мои работы',
-        href: 'works.html'
+        href: 'works'
     },
     {
         title: 'блог',
-        href: 'blog.html'
+        href: 'blog'
     },
     {
         title: 'обо мне',
-        href: 'about.html'
+        href: 'about'
     },
     {
         title: 'авторизация',
-        href: 'index.html'
+        href: 'index'
     }
 ];
 

@@ -1,31 +1,32 @@
 <template lang="pug">
   li.skill__item
+    form(@submit.prevent="saveSkill")
       .skill__name {{skill.name}}
       label.skill__label 
         input(type="text" :value="skill.percents" ref="skillVal").skill__value
       span.skill__span &#37; 
-      button(type="button" @click="saveSkill(skill._id)").skill__btn Set
+      button(type="submit").skill__btn Set
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 export default {
   props: {
     skill: Object
   },
   methods: {
-    ...mapMutations(['removeSkill', 'setSkill']),
+    ...mapActions(['setSkill']),
     /* editExistedSkill(skillId, skillVal) {
       console.log(skillVal);
       this.editSkill(skillId, skillVal);
     }, */
-    saveSkill(skillId) {
-      console.log(skillId, this.$refs.skillVal.value);
+    saveSkill() {
+      console.log(this.skill._id, this.$refs.skillVal.value);
       const data = {
-        id: skillId,
+        id: this.skill._id,
         val: this.$refs.skillVal.value
       };
-      this.setSkill(skillId, this.$refs.skillVal.value);
+      this.setSkill(data);
     }
   }
 };

@@ -20,31 +20,23 @@ module.exports.getSkills = function(req, res) {
 };
 
 module.exports.setSkills = function(req, res) {
-  const id = req.data.id;
-  const value = req.data.val;
-  console.log(req);
-  const Model = mongoose.model('admin');
+  console.log('hello from api setSkills',  req.body);
+  const id = req.body.id;
+  const value = req.body.val;
+  
+  const Model = mongoose.model('skills');
 
-  Model
-    .findByIdAndUpdate(id, {$set: {percents, value}})
-    .then((item) => {
-      if (item) {
-        res
-          .status(200)
-          .json({status: 'Запись успешно обновлена'});
-      } else {
-        res
-          .status(404)
-          .json({status: 'Запись в БД не обнаружена'});
-      }
+  Model.update(  /* .findByIdAndUpdate(id, {$set: {percents: value}}) */
+    {_id: id},
+    {$set: {percents: value}},
+    (err, item) => {
+      if (err){
+        console.log(err);
+        return res.status(400).json({ message: err.message, error: err });
+      }        
+        
+      return res.status(201).json({ status: 'OK' });
     })
-    .catch((err) => {
-      res
-        .status(404)
-        .json({
-          status: 'При обновлении записи произошла ошибка: ' + err
-        });
-    });
 };
 
 /* const mongoose = require('mongoose');

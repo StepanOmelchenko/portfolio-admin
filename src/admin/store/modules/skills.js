@@ -24,7 +24,7 @@ const skills = {
       });
     },
     setSkill({ state, commit }, data) {
-      console.log('hello from setSkill');
+      console.log('hello from setSkill', data);
       axios({
         method: 'post',
         url: 'http://localhost:3000/api/admin',

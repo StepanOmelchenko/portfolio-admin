@@ -1,16 +1,18 @@
-const mongoose = require('mongoose');
-const config = require('../../config');
+const mongoose = require("mongoose");
+const config = require("../../config");
 
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(`mongodb://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`)
+  .connect(
+    `mongodb://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`
+  )
   .catch(e => {
     console.error(e);
     throw e;
   });
 
-mongoose.connection.on('connected', function() {
+mongoose.connection.on("connected", function() {
   console.log(
     `Mongoose default connection open mongodb://${config.db.host}:${
       config.db.port
@@ -19,24 +21,24 @@ mongoose.connection.on('connected', function() {
 });
 
 // If the connection throws an error
-mongoose.connection.on('error', function(err) {
-  console.log('Mongoose default connection error: ' + err);
+mongoose.connection.on("error", function(err) {
+  console.log("Mongoose default connection error: " + err);
 });
 
 // When the connection is disconnected
 mongoose.connection.on('disconnected', function() {
-  console.log('Mongoose default connection disconnected');
+  console.log("Mongoose default connection disconnected");
 });
 
 // If the Node process ends, close the Mongoose connection
-process.on('SIGINT', function() {
+process.on("SIGINT", function() {
   mongoose.connection.close(function() {
     console.log(
-      'Mongoose default connection disconnected through app termination'
+      "Mongoose default connection disconnected through app termination"
     );
     process.exit(0);
   });
 });
 
-require('./admin');
-require('../../models/user');
+require("./admin");
+require("../../models/user");

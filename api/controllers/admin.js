@@ -12,8 +12,7 @@ module.exports.getSkills = function(req, res) {
   });
 };
 
-module.exports.setSkills = function(req, res) {  
-  //console.log("hello from api setSkills", req.body);
+module.exports.setSkills = function(req, res) { 
   const id = req.body.id;
   const val = parseInt(req.body.val);
 

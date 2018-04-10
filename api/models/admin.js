@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const SkillsSchema = new Schema({
   _id: Schema.ObjectId,

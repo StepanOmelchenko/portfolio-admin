@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 module.exports.getSkills = function(req, res) {
-  const skills = mongoose.model("skills");
+  const Skills = mongoose.model("skills");
 
-  skills.find().then(items => {
+  Skills.find().then(items => {
     if (!items.length) {
       res.status(200).json({ skills: [] });
     } else {
@@ -13,26 +13,18 @@ module.exports.getSkills = function(req, res) {
 };
 
 module.exports.setSkills = function(req, res) {  
-  console.log("hello from api setSkills", req.body);
+  //console.log("hello from api setSkills", req.body);
   const id = req.body.id;
+  const val = parseInt(req.body.val);
 
-  const data = {
-    id: req.body.skill.id,
-    name: req.body.name,
-    percents: parseInt(req.body.val),
-    type: req.body.skill.type
-  };
+  const Skills = mongoose.model("skills");
 
-  console.log("data: ", data);
-
-  const Model = mongoose.model("skills");
-
-  Model.findOneAndUpdate(id, { $set: data }, { new: true })
+  Skills.update({ _id: id }, { percents: val })
     .then(item => {
       if (item) {
         res.json(item);
       } else {
-        res.status(404).json({ err: "Cat not found" });
+        res.status(404).json({ err: "Not found" });
       }
     })
     .catch(e => {

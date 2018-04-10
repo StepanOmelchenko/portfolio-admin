@@ -16,15 +16,13 @@ export default {
   },
   methods: {
     ...mapActions(['setSkill']),
-    /* editExistedSkill(skillId, skillVal) {
-      console.log(skillVal);
-      this.editSkill(skillId, skillVal);
-    }, */
     saveSkill() {
       console.log(this.skill._id, this.$refs.skillVal.value);
       const data = {
         id: this.skill._id,
-        val: this.$refs.skillVal.value
+        name: this.skill.name,
+        val: this.$refs.skillVal.value,
+        skill: this.skill
       };
       this.setSkill(data);
     }

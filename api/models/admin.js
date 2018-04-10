@@ -18,4 +18,4 @@ const SkillsSchema = new Schema({
   ]
 });
 
-mongoose.model('skills', SkillsSchema);
+mongoose.model("skills", SkillsSchema);

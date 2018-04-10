@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const skills = {
   state: {
@@ -26,14 +26,13 @@ const skills = {
     setSkill({ state, commit }, data) {
       console.log('hello from setSkill', data);
       axios({
-        method: 'post',
+        method: 'put',
         url: 'http://localhost:3000/api/admin',
         data: data
       }).then((res) => {
         state.msgSkills = res.data.status;
       });
     }
-    
   }
 };
 

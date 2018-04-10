@@ -13,7 +13,7 @@ var isAuthenticated = function(req, res, next) {
 };
 
 router.get('/admin', admin.getSkills);
-router.post('/admin', isAuthenticated, admin.setSkills);
+router.put('/admin', isAuthenticated, admin.setSkills);
 
 router.get('*', (req, res) => {
   res.status(404).json({msg: 'Not found', err: 404});

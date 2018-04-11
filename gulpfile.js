@@ -15,6 +15,7 @@ const replace = require('gulp-replace');
 
 const paths = {
     root: './public',
+    views: './views',
     templates: {
         src: './src/templates/**/*.pug',
         pages: './src/templates/pages/*.pug'
@@ -58,9 +59,9 @@ function clear() {
 }
 
 function templates() {
-    return gulp.src(paths.templates.pages)
-        .pipe(pug({pretty: true}))
-        .pipe(gulp.dest(paths.root));
+    return gulp.src(paths.templates.src)
+        //.pipe(pug({pretty: true}))
+        .pipe(gulp.dest(paths.views));
 }
 
 function styles() {

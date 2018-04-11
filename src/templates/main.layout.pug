@@ -1,0 +1,18 @@
+include config/_mixin
+include config/_var
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(content="ie=edge" http-equiv="x-ua-compatible")
+    meta(content="width=device-width, initial-scale=1" name="viewport")
+    
+    title #{title}
+
+    script(src='/scripts/styles.bundle.js')
+  body
+    .wrapper
+      block content
+    script(src='/scripts/main.bundle.js')
+    

@@ -30,56 +30,69 @@ block content
                         h3.about__profit-header Чем я могу быть вам полезен
                         p.about__profit-text Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
                     .about__diagrams
-                        ul.about__diagrams-content(id="diagrams-list")
-                            li.about__diagrams-row
-                                h3.about__diagrams-header Frontend
-                                ul.about__diagrams-list
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title HTML5
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title CSS3
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title JavaScript
-                            li.about__diagrams-row
-                                h3.about__diagrams-header Backend
-                                ul.about__diagrams-list
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title PHP
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title mySQL
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title Node.js & npm
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title Mongo.db
-                            li.about__diagrams-row
-                                h3.about__diagrams-header WorkFlow
-                                ul.about__diagrams-list
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title Git
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title Gulp
-                                    li.about__diagrams-item
-                                        svg.about__diagrams-svg(width="110" height="110")
-                                            use(xlink:href="#diagram-circle")
-                                        span.about__diagrams-title Bower
+                        if (skills)
+                            ul.about__diagrams-content(id="diagrams-list")
+                                each row in skills                                  
+                                    li.about__diagrams-row
+                                        h3.about__diagrams-header= row[0].type
+                                        ul.about__diagrams-list
+                                            each skill in row
+                                                li.about__diagrams-item
+                                                    .about__diagrams-title= skill.name
+                                                    svg(class="about__diagrams-svg" viewBox='0 0 110 110')
+                                                        circle(r="45" cx="50%" cy="50%" fill="none" class="diagrams__circle-in")
+                                                        circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="diagrams__circle-out about__diagrams-circle" data-fill-class=`circle--${skill.percents}`)
+                        else
+                            ul.about__diagrams-content(id="diagrams-list")
+                                li.about__diagrams-row
+                                    h3.about__diagrams-header Frontend
+                                    ul.about__diagrams-list
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title HTML5
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title CSS3
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title JavaScript
+                                li.about__diagrams-row
+                                    h3.about__diagrams-header Backend
+                                    ul.about__diagrams-list
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title PHP
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title mySQL
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title Node.js & npm
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title Mongo.db
+                                li.about__diagrams-row
+                                    h3.about__diagrams-header WorkFlow
+                                    ul.about__diagrams-list
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title Git
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title Gulp
+                                        li.about__diagrams-item
+                                            svg.about__diagrams-svg(width="110" height="110")
+                                                use(xlink:href="#diagram-circle")
+                                            span.about__diagrams-title Bower
         section.section.about__map(id="map")
             .about__map-box
                 h2.about__map-header Контакты

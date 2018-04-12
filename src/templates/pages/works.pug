@@ -3,7 +3,8 @@ extends ../template
 block varibles
     -var title="My works"
 block content
-    div.wrapper
+    include ../common/preloader.pug
+    .wrapper
         section.section.works-first
             include ../common/hero
             +hero("hero__next", "common")

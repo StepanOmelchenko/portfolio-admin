@@ -161,8 +161,8 @@ exports.scripts = scripts;
 exports.spriteSvg = spriteSvg;
 exports.watch = watch;
 
-gulp.task('default', gulp.series(
+gulp.task("default", gulp.series(
     clear,
-    gulp.parallel(styles, templates, images, fonts, ),
+    gulp.parallel(styles, templates, images, fonts),
     gulp.parallel(scripts, spriteSvg /* watch, server */)
 ));

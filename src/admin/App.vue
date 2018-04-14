@@ -20,9 +20,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-  .content {
-    background: url('~images/bg.jpg') center center / cover no-repeat;
-  }
-</style>

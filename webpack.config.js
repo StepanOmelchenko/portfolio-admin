@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          "vue-style-loader", 
+          "vue-style-loader",
           "css-loader",
           "svg-fill-loader/encodeSharp",
           "sass-loader"
@@ -65,10 +65,10 @@ module.exports = {
         use: [
           "url-loader",
           {
-            loader: 'svg-fill-loader?fill=#fff'
+            loader: "svg-fill-loader?fill=#fff"
           }
         ]
-      },
+      }
     ]
   },
   resolve: {

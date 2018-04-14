@@ -1,7 +1,7 @@
 <template lang="pug">
   .header
     h1.header__title Панель администрирования
-    a.header__link(href="").return-back Вернуться на сайт
+    a.header__link(href="/").return-back Вернуться на сайт
 </template>
 <script>
 export default {

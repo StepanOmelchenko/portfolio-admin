@@ -47,12 +47,7 @@ export default {
 }
 
 .skills__box {
-    margin-top: 20px;
     width: 230px;
-
-    &:first-child{
-      margin-top: 0;
-    }
 }
 
 .skills__list{

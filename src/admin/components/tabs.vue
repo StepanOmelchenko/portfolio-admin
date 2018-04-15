@@ -1,9 +1,9 @@
 <template lang="pug">
     .tabs
         ul.tabs__list
-            li.tabs__item(v-for="tab in tabs")
+            li.tabs__item(v-for="tab in tabs" v-on:click="setActive(tab)")
                 router-link.tabs__link(:to="tab.href" :class="{'tabs__item--active' : tab.active}")
-                    span(v-on:click="setActive(tab)") {{tab.name}}
+                    span.tabs__span {{tab.name}}
 </template>
 
 <script>

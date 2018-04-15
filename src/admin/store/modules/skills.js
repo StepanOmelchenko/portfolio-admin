@@ -6,7 +6,7 @@ const skills = {
   },
   getters: {
     skills(state) {
-      return state.data
+      return state.data;
     }
   },
   mutations: {

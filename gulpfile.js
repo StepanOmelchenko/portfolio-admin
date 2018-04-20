@@ -192,6 +192,7 @@ gulp.task(
   gulp.series(
     clear,
     gulp.parallel(styles, templates, images, fonts),
-    gulp.parallel(scripts, moveExLib, spriteSvg /* watch, server */)
+    gulp.parallel(scripts, moveExLib, spriteSvg),
+    watch /* , server */
   )
 );

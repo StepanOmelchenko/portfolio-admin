@@ -182,9 +182,9 @@
         width: 50%;
         height: 100%;
         background-color: #e3ded0;
-        background-size: contain;
+        /* background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center; */
         
         &:before{
             content: "";
@@ -243,7 +243,7 @@
         right: 0;
         bottom: 0;
         background-position: center;
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         will-change: transform;
     }

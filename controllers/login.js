@@ -5,7 +5,7 @@ module.exports.login = function(req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/admin");
   }
-  res.render("pages/login", {
+  res.render("pages/admin", {
     title: "Авторизация",
     msg: req.flash("message")
   });

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const admin = require("../controllers/admin");
 
-console.log("hello from api router");
+//console.log("hello from api router");
 
 var isAuthenticated = function(req, res, next) {
   if (req.isAuthenticated()) {

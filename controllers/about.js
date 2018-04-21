@@ -40,7 +40,7 @@ module.exports.index = function (req, res) {
 
     //console.log(skills);
 
-    console.log(body.skills);
+    //console.log(body.skills);
 
     res.render('pages/about', Object.assign({}/* , sendObj */, body));
   });
